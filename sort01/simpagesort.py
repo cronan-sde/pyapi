@@ -2,15 +2,13 @@
 
 simpsons = [('Moe', "?"), ('Otto', '?'), ('Lisa', 8), ('Bart', 10), ('Maggie', 2), ('Homer', 36), ('Marge', 34)]
 
-def byAge(characterbio):
-    # isinstance can test if a value is an int, float, str, etc.
-    if isinstance(characterbio[1], int):
-        return characterbio[1]
+def ageSort(simpChar):
+    if type(simpChar[1]) is int:
+        return simpChar[1]
     else:
-        return 1000  # if a user does not have an age, return 1000
-        # which will put them at the end of the list
+        return 200  
 
-simpsonsAge = sorted(simpsons, key=byAge)
+simpsonsAge = sorted(simpsons, key=ageSort)
 
 print('Result of sorted(simpsons, key=byAge): ', simpsonsAge)
 
