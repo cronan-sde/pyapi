@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import pprint
+
 company_gear = [('cisco', '2015', '192.168.10.14'), \
 ('cisco', '2011', '192.168.11.14'), ('cisco', '1999', '10.10.10.14'), \
 ('cisco', '2018', '10.1.6.14'), ('juniper', '2018', '10.7.6.10'), \
@@ -26,7 +28,8 @@ print('\nResult of sorted(vendor_name_cg, key=byYear): ' + str(vendor_name_year_
 vendorName = sorted(company_gear, key=byName)
 vendorDescYear = sorted(vendorName, key=byYear, reverse=True)
 
-print('\nCode Customization 01: ' + str(vendorDescYear))
+print('\nCode Customization 01: ')
+pprint.pprint(vendorDescYear)
 
 #code cust 02
 def byIP(x):
