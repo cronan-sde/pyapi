@@ -109,13 +109,13 @@ def findHazard(neoData):
     hazardous = []
     for date in neoData:
         for neo in neoData[date]:
-            if neo["is_potentially_hazardous_asteroid"] == "true":
+            if neo["is_potentially_hazardous_asteroid"] == True:
                 hazardous.append(neo["name"])
-
+            
     if len(hazardous) == 0:
         print("There were no potentially hazardous asteroids during this time")
     else:
-        print(f"There were {len(hazardous)} hazardous asteroids during {startdate}, the names of these are:")
+        print(f"There were {len(hazardous)} hazardous asteroids during this time, the names of these are:")
         for name in hazardous:
             if name == hazardous[-1]:
                 print(name)
