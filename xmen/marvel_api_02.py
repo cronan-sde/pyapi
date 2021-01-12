@@ -42,10 +42,14 @@ def main():
     uncannyxmen = marvelcharcall(nightcrawler, cerebro, storm, args.hero)
     
     if args.comics and args.comics == "y":
-        comics = uncannyxmen.get("data").get("results")[0].get("comics").get("items")
-        print(f"Comics {args.hero} appeared in:")
-        for comic in comics:
-            print(comic["name"])
+        comicData = uncannyxmen.get("data").get("results")
+        if len(comicData) == 0:
+            print(f"Can't find any comics relating to {args.hero}")
+        else:
+            comics = comicData[0].get("comics").get("items")
+            print(f"Comics {args.hero} appeared in:")
+            for comic in comics:
+                print(comic["name"])
     else:
         print(uncannyxmen)
 
@@ -62,7 +66,7 @@ if __name__ == '__main__':
     parser.add_argument('--hero', \
       help='Character to search for within the Marvel universe')
     # print all comics character is in
-    parser.add_argument('--comics', \
+    parser.add_argument('--comics', default="n", \
             help='Type "y" to get name of all comics Character appeared in')
     args = parser.parse_args()
     main()
